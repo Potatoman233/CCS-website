@@ -30,4 +30,3 @@ npm install
 cd mymfrontend
 npm start
 
-asdasd
