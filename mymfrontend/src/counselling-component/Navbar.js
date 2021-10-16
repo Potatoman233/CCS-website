@@ -1,5 +1,4 @@
 import React from "react"
-import Config from "../utils/Config"
 import { Link } from "react-router-dom"
 
 class Navbar extends React.Component {
@@ -15,14 +14,28 @@ class Navbar extends React.Component {
                     </div>
 
                     <div>
-                        {/* dynamic nav bar items */}
-                        {Config.TopNavBarItem.map(
-                            (item) =>
-                                <Link key={item.index} className="navbar-brand" to={item.url}>
-                                    <i>{item.image}</i>
-                                    <span>{item.title} </span>
-                                </Link>
-                        )}
+                        <Link className="navbar-brand" to="#">
+                            <span>About</span>
+                        </Link>
+                        <Link className="navbar-brand" to="#">
+                            <span>Services</span>
+                        </Link>
+
+                        <Link className="navbar-brand" to="#">
+                            <i>CCS logo</i>
+                        </Link>
+
+                        <Link className="navbar-brand" to="#">
+                            <span>Team</span>
+                        </Link>
+
+                        <Link className="navbar-brand" to="#">
+                            <span>Contact Us</span>
+                        </Link>
+
+                        <Link className="navbar-brand" to="#">
+                            <span>FAQ</span>
+                        </Link>
                     </div>
 
                     <div className="nav navbar-nav navbar-right ">
