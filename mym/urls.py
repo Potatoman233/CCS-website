@@ -1,5 +1,6 @@
 from django.urls.conf import include
 from mymApp.urls import router
+from mymApp.views import ClientNameViewSet
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
