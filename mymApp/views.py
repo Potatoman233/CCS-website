@@ -50,8 +50,8 @@ class ClientViewSet(viewsets.ViewSet):
             serializer.save()
             # format the response json
             response_dict = {"error":False, "message":"Data saved successfully"}
-        except:
-            response_dict = {"error":True, "message":"Failed to save data"}
+        except Exception as e:
+            response_dict = {"error":True, "message":str(e)}
             
         return Response(response_dict)
     
@@ -64,8 +64,8 @@ class ClientViewSet(viewsets.ViewSet):
             serializer.is_valid()
             serializer.save()
             response_dict = {"error":False, "message":"Data updated successfully"}
-        except:
-            response_dict = {"error":True, "message":"Data updated failed"}
+        except Exception as e:
+            response_dict = {"error":True, "message":str(e)}
         return Response(response_dict)
 
 class AppointmentViewSet(viewsets.ViewSet):
@@ -83,8 +83,8 @@ class AppointmentViewSet(viewsets.ViewSet):
             serializer.data['id']
             # format the response json
             response_dict = {"error":False, "message":"Appointment saved successfully"}
-        except:
-            response_dict = {"error":True, "message":"Failed to save appointment"}
+        except Exception as e:
+            response_dict = {"error":True, "message":str(e)}
             
         return Response(response_dict)
     
@@ -118,8 +118,8 @@ class AppointmentViewSet(viewsets.ViewSet):
             serializer.is_valid()
             serializer.save()
             response_dict = {"error":False, "message":"Appointment updated successfully"}
-        except:
-            response_dict = {"error":True, "message":"Appointment updated failed"}
+        except Exception as e:
+            response_dict = {"error":True, "message":str(e)}
         return Response(response_dict)
     
 class ClientNameViewSet(generics.ListAPIView):
@@ -140,8 +140,8 @@ class CounsellingAssessmentViewSet(viewsets.ViewSet):
             serializer.save()
             # format the response json
             response_dict = {"error":False, "message":"Assessment saved successfully"}
-        except:
-            response_dict = {"error":True, "message":"Failed to save assessment"}
+        except Exception as e:
+            response_dict = {"error":True, "message":str(e)}
             
         return Response(response_dict)
     
@@ -165,13 +165,13 @@ class CounsellingAssessmentViewSet(viewsets.ViewSet):
         try:
             queryset = CounsellingAssessment.objects.all()
             counsellingAssess = get_object_or_404(queryset, pk=pk)
+            print(type(counsellingAssess))
             serializer = CounsellingAssessmentSerializer(counsellingAssess, data=request.data, context={"request":request})
             serializer.is_valid()
             serializer.save()
             response_dict = {"error":False, "message":"Assessment updated successfully"}
         except Exception as e:
-            print(e)
-            response_dict = {"error":True, "message":"Assessment updated failed"}
+            response_dict = {"error":True, "message":str(e)}
         return Response(response_dict)
    
 client_list = ClientViewSet.as_view({"get", "list"})
