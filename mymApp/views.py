@@ -67,6 +67,17 @@ class ClientViewSet(viewsets.ViewSet):
         except Exception as e:
             response_dict = {"error":True, "message":str(e)}
         return Response(response_dict)
+    
+    # DELETE method
+    def destroy(self, request, pk=None):
+        try:
+            queryset = Client.objects.all()
+            client = get_object_or_404(queryset, pk=pk)
+            client.delete()
+            response_dict = {"error":False, "message":"Data deleted successfully"}
+        except Exception as e:
+            response_dict = {"error":True, "message":str(e)}
+        return Response(response_dict)
 
 class AppointmentViewSet(viewsets.ViewSet):
     authentication_classes = [JWTAuthentication]

@@ -2,6 +2,7 @@ from django.urls.conf import include
 from mymApp.urls import router as approuter
 from accounts.urls import router as accrouter
 from mymApp.views import ClientNameViewSet
+from accounts.views import CheckUserRole
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
