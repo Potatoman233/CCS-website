@@ -20,6 +20,9 @@ class Navbar extends React.Component {
                         <Link className="navbar-brand" to="#">
                             <span>Services</span>
                         </Link>
+                        <Link className="navbar-brand" to="#">
+                            <span>Events</span>
+                        </Link>
 
                         <Link className="navbar-brand" to="#">
                             <i>CCS logo</i>
@@ -30,7 +33,7 @@ class Navbar extends React.Component {
                         </Link>
 
                         <Link className="navbar-brand" to="#">
-                            <span>Contact Us</span>
+                            <span>Contact us</span>
                         </Link>
 
                         <Link className="navbar-brand" to="#">

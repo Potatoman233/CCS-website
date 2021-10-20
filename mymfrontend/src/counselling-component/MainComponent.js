@@ -46,7 +46,7 @@ class MainComponent extends React.Component {
         console.log(this.props)
         if (this.state.width > 1150) {
             // set the theme colour of website using bootstrap CSS
-            document.getElementById("root").className = "theme-blue"
+            document.getElementById("root").className = "theme-orange"
         } else {
             // hard coded html class
             document.getElementById("root").className = this.state.bodyClass
