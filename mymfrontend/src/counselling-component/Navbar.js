@@ -14,29 +14,29 @@ class Navbar extends React.Component {
                     </div>
 
                     <div>
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/about">
                             <span>About</span>
                         </Link>
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/services">
                             <span>Services</span>
                         </Link>
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/events">
                             <span>Events</span>
                         </Link>
 
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/">
                             <i>CCS logo</i>
                         </Link>
 
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/team">
                             <span>Team</span>
                         </Link>
 
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/contact">
                             <span>Contact us</span>
                         </Link>
 
-                        <Link className="navbar-brand" to="#">
+                        <Link className="navbar-brand" to="/faq">
                             <span>FAQ</span>
                         </Link>
                     </div>

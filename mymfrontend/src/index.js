@@ -14,6 +14,11 @@ import AddAssessment from './admin-pages/AddAssessment'
 import EditAssessment from './admin-pages/EditAssessment'
 import HomePage from './counselling-pages/HomePage'
 import CounsellingLogin from './counselling-pages/Login'
+import Contact from './counselling-pages/Contact'
+import Events from './counselling-pages/Events'
+import Services from './counselling-pages/Services'
+import Team from './counselling-pages/Team'
+import FAQ from './counselling-pages/FAQ'
 import { PrivateRoute } from './utils/PrivateRoute'
 import About from './counselling-pages/About'
 
@@ -24,6 +29,11 @@ ReactDOM.render(
             <PrivateRoute exact path="/" activepage="1" page={HomePage}></PrivateRoute>
             <PrivateRoute exact path="/counsellinglogin" activepage="0" page={CounsellingLogin}></PrivateRoute>
             <PrivateRoute exact path="/about" activepage="0" page={About}></PrivateRoute>
+            <PrivateRoute exact path="/services" activepage="0" page={Services}></PrivateRoute>
+            <PrivateRoute exact path="/events" activepage="0" page={Events}></PrivateRoute>
+            <PrivateRoute exact path="/team" activepage="0" page={Team}></PrivateRoute>
+            <PrivateRoute exact path="/contact" activepage="0" page={Contact}></PrivateRoute>
+            <PrivateRoute exact path="/faq" activepage="0" page={FAQ}></PrivateRoute>
 
             {/* admin pages */}
             <Route exact path="/adminlogin" component={Login}></Route>
