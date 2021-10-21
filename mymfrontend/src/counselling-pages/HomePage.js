@@ -29,9 +29,7 @@ class HomePage extends React.Component {
                         You’re not as happy as you should be <br />
                         You feel like you’re on the brink of breaking down</p>
                         <h4>Bear in mind, you don’t have to help yourself by yourself.</h4>
-
-                    
-      
+     
 
                     </div>
                 </div>
