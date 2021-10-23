@@ -56,7 +56,7 @@ class CheckUserRole(viewsets.ViewSet):
         username = self.kwargs['pk']
         user = User.objects.filter(username = username)
         user_data = user.values('username', 'is_staff', 'is_superuser')
-        return Response(user_data, status=status.HTTP_200_OK)
+        return Response(user_data[0], status=status.HTTP_200_OK)
     
 class UserChangePasswordView(viewsets.ViewSet):
     permission_classes = [AllowAny]

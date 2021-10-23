@@ -14,6 +14,7 @@ class Login extends React.Component {
         password:"",
         btnDisabled:true,
         loginStatus:0,
+        errorMessage:"",
     }
     
     saveInputs = (events)=>{
@@ -34,13 +35,14 @@ class Login extends React.Component {
         events.preventDefault()
         console.log(this.state)
         this.setState({loginStatus:1})
-        AuthHandler.login(this.state.username, this.state.password,this.handleAjaxResponse)
+        AuthHandler.adminLogin(this.state.username, this.state.password,this.handleAjaxResponse)
     }
 
     handleAjaxResponse=(data)=>{
         console.log(data)
         if(data.error){
             this.setState({loginStatus:4})
+            this.setState({errorMessage:data.message})
         }
         else{
             this.setState({loginStatus:3})
@@ -67,7 +69,7 @@ class Login extends React.Component {
         }else if(this.state.loginStatus ===4){
             return(
                 <div className="alert alert-danger">
-                    <strong>Invalid login</strong>
+                    <strong>{this.state.errorMessage}</strong>
                 </div>
             )
         }
