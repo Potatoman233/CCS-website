@@ -7,7 +7,7 @@ class Navbar extends React.Component {
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <a href="#" className="bars" onClick={this.props.onBarClick}></a>
-                        <a className="navbar-brand" href="#">CCS Admin</a>
+                        <a className="navbar-brand" href="#">Taylor's University Counselling Service</a>
                     </div>
 
                 </div>
