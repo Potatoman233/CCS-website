@@ -107,7 +107,11 @@ class Login extends React.Component {
                         },
                     ]}
                 />
+<<<<<<< HEAD
               <div> <Navbar/> </div> 
+=======
+              <div> <Navbar/> </div>
+>>>>>>> 282857f4b4571a3f32dde169ae8d5c4b5c9176ea
                 <div className="login-box">
                     <div className="logo">
                         <a href="#">Admin<b>CCS</b></a>
