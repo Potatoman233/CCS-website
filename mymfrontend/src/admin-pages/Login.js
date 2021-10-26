@@ -107,7 +107,7 @@ class Login extends React.Component {
                         },
                     ]}
                 />
-              <div> <Navbar/> </div> //Hello changes
+              <div> <Navbar/> </div>
                 <div className="login-box">
                     <div className="logo">
                         <a href="#">Admin<b>CCS</b></a>
