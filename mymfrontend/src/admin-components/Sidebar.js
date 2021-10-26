@@ -10,15 +10,13 @@ class Sidebar extends React.Component {
             <section>
                 <aside id="leftsidebar" className="sidebar">
                     <div className="user-info">
-                        <div className="image">
-                            <img src={usericon} width="48" height="48" alt="User" />
-                        </div>
+                        
                         <div className="info-container">
                             <div className="name"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="false">
-                                Esther Chu
+                                <h2>Esther Chu</h2>
                             </div>
 
                         </div>
@@ -60,7 +58,7 @@ class Sidebar extends React.Component {
                     </div>
                     <div className="legal">
                         <div className="copyright">
-                            Copyright © 2021 <br/>Taylor's University <br/>DU023(B). All rights reserved <a href="#"><br/>CCS Admin</a>.
+                            Copyright © 2021 <br/>Taylor's University <br/>DU023(B). All rights reserved <a href="#"><br/>CCS Admin</a>
                         </div>
                            <div className="version">
                             <b>Version: </b> 0.1.0
