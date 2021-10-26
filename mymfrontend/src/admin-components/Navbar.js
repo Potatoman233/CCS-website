@@ -1,5 +1,5 @@
 import React from 'react'
-import user1 from 'adminbsb-materialdesign/images/user1.jpeg'
+import user1 from 'adminbsb-materialdesign/images/user1.png'
 class Navbar extends React.Component {
     render() {
         return (
