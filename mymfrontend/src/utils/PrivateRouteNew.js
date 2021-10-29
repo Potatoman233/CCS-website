@@ -10,7 +10,7 @@ export var PrivateRouteNew = ({ page, activepage, ...rest }) => {
             // add props here allows variables to be passed to main component, 
             // so data can be passed to diff component/pages 
             render={(props) =>
-                AuthHandler.adminLoggedIn() ? (
+                AuthHandler.loggedIn() ? (
                     // for adminpages to load all the components
                 <MainComponent page={page} activepage={activepage} {...props} />
                 ) : <Redirect to='/adminlogin' />}
