@@ -82,7 +82,7 @@ class Login extends React.Component {
     render() {
         // redirect user back to home when logged in
 
-        if(AuthHandler.loggedIn()){
+        if(AuthHandler.adminLoggedIn()){
             return <Redirect to={Config.homeUrl} />
         }  
         document.body.className = "login-page"
