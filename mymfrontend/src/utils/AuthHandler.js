@@ -21,12 +21,12 @@ class AuthHandler {
 
     static adminLogin(username, password, callback) {
         // get role based on username entered
-        axios.get(Config.userRoleUrl + "" + username + "/")
+        axios.post(Config.userRoleUrl, { email: username, password: password })
             .then(function (response) {
                 if (response.status === 200) {
                     if (response.data.is_staff | response.data.is_superuser) {
                         // if user is staff, proceed login
-                        axios.post(Config.loginUrl, { username: username, password: password })
+                        axios.post(Config.loginUrl, { email: username, password: password })
                         .then(function (response) {
                             if (response.status === 200) {
                                 // store the tokens in local storage
