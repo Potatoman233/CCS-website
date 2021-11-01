@@ -10,15 +10,13 @@ class Sidebar extends React.Component {
             <section>
                 <aside id="leftsidebar" className="sidebar">
                     <div className="user-info">
-                        <div className="image">
-                            <img src={usericon} width="48" height="48" alt="User" />
-                        </div>
+                        
                         <div className="info-container">
                             <div className="name"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="false">
-                                User
+                                <h2>Esther Chu</h2>
                             </div>
 
                         </div>
@@ -26,7 +24,7 @@ class Sidebar extends React.Component {
                     <div className="menu">
                         <div className="slimScrollDiv" style={{ position: " relative", overflow: " hidden", width: " auto"}}>
                             <ul className="list" style={{ overflow: "hidden", width: "auto" }}>
-                                <li className="header">MAIN NAVIGATION</li>
+                                <li className="header">Main Menu</li>
                                 {/* dynamic side bar items */}
                                 {Config.sidebarItem.map(
                                     (item) =>
@@ -60,11 +58,11 @@ class Sidebar extends React.Component {
                     </div>
                     <div className="legal">
                         <div className="copyright">
-                            © 2021 <a href="#">CCS Admin</a>.
+                            Copyright © 2021 <br/>Taylor's University <br/>DU023(B). All rights reserved <a href="#"><br/>CCS Admin</a>
                         </div>
-                        <div className="version">
-                            <b>Version: </b> 1.0.5
-                        </div>
+                           <div className="version">
+                            <b>Version: </b> 0.1.0
+                           </div>
                     </div>
                 </aside>
             </section>

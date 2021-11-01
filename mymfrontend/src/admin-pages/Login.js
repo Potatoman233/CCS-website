@@ -1,4 +1,5 @@
 import React from "react"
+import Navbar from "../admin-components/Navbar"
 import 'adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css'
 import 'adminbsb-materialdesign/plugins/node-waves/waves.css'
 import 'adminbsb-materialdesign/plugins/animate-css/animate.css'
@@ -8,12 +9,16 @@ import AuthHandler from "../utils/AuthHandler"
 import Config from '../utils/Config'
 import { Redirect } from "react-router"
 
+
 class Login extends React.Component {
+
     state={
+        
         username:"",
         password:"",
         btnDisabled:true,
         loginStatus:0,
+        errorMessage:"",
     }
     
     saveInputs = (events)=>{
@@ -34,13 +39,14 @@ class Login extends React.Component {
         events.preventDefault()
         console.log(this.state)
         this.setState({loginStatus:1})
-        AuthHandler.login(this.state.username, this.state.password,this.handleAjaxResponse)
+        AuthHandler.adminLogin(this.state.username, this.state.password,this.handleAjaxResponse)
     }
 
     handleAjaxResponse=(data)=>{
         console.log(data)
         if(data.error){
             this.setState({loginStatus:4})
+            this.setState({errorMessage:data.message})
         }
         else{
             this.setState({loginStatus:3})
@@ -67,7 +73,7 @@ class Login extends React.Component {
         }else if(this.state.loginStatus ===4){
             return(
                 <div className="alert alert-danger">
-                    <strong>Invalid login</strong>
+                    <strong>{this.state.errorMessage}</strong>
                 </div>
             )
         }
@@ -75,14 +81,15 @@ class Login extends React.Component {
 
     render() {
         // redirect user back to home when logged in
-        if(AuthHandler.loggedIn()){
-            return <Redirect to={Config.homeUrl} />
-        }
 
+        if(AuthHandler.adminLoggedIn()){
+            return <Redirect to={Config.homeUrl} />
+        }  
         document.body.className = "login-page"
 
-        return (
-            <React.Fragment>
+        return ( 
+            
+            <React.Fragment> 
                 <GoogleFontLoader
                     fonts={[
                         {
@@ -91,16 +98,15 @@ class Login extends React.Component {
                         },
                     ]}
                     subsets={['latin', 'cyrillic-ext']}
-                />
-
-                <GoogleFontLoader
+                />              
+                            <GoogleFontLoader
                     fonts={[
                         {
                             font: 'Material+Icons'
                         },
                     ]}
                 />
-
+              <div> <Navbar/> </div>
                 <div className="login-box">
                     <div className="logo">
                         <a href="#">Admin<b>CCS</b></a>
@@ -108,7 +114,7 @@ class Login extends React.Component {
                     <div className="card">
                         <div className="body">
                             <form id="sign_in" method="POST" onSubmit={this.formSubmit}>
-                                <div className="msg">Sign in to start your session</div>
+                                <div className="msg">Login as CCS Administrator</div>
                                 <div className="input-group">
                                     <span className="input-group-addon">
                                         <i className="material-icons">person</i>
@@ -154,8 +160,8 @@ class Login extends React.Component {
                                 </div>
                                 {this.getMessages()}
                             </form>
-                        </div>
-                    </div>
+                        </div>     
+                    </div> 
                 </div>
             </React.Fragment>
         )

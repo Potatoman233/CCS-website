@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'accounts',
+    'easyaudit',
+    'audit',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
 
 ]
 
@@ -146,3 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
+
+# Easy audit settings
+DJANGO_EASY_AUDIT_WATCH_AUTH_EVENTS = False
+DJANGO_EASY_AUDIT_WATCH_REQUEST_EVENTS = False

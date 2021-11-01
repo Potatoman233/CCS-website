@@ -8,17 +8,17 @@ import "adminbsb-materialdesign/css/themes/all-themes.css"
 class MainComponent extends React.Component {
     
     state={
-        bodyClass:"theme-red ls-closed",
+        bodyClass:"theme-green ls-closed",
         displayOverlay: "none",
         width:window.screen.width,
     }
-    // when clicking the side bar
+    // when clicking the side bar , i changed red to green but dk tf if does
     onBarClick = () =>{
-        if(this.state.bodyClass=="theme-red ls-closed overlay-open"){
-            this.setState({bodyClass:"theme-red ls-closed"})
+        if(this.state.bodyClass=="theme-green ls-closed overlay-open"){
+            this.setState({bodyClass:"theme-green ls-closed"})
             this.setState({displayOverlay:"none"})
-        }else if(this.state.bodyClass=="theme-red ls-closed"){
-            this.setState({bodyClass:"theme-red ls-closed overlay-open"})
+        }else if(this.state.bodyClass=="theme-green ls-closed"){
+            this.setState({bodyClass:"theme-green ls-closed overlay-open"})
             this.setState({displayOverlay:"block"})
         }
     }
@@ -52,10 +52,10 @@ class MainComponent extends React.Component {
         })
     }
 
-    render() {
+    render() { // made theme green n white but green looks better tbh
         console.log(this.props)
         if (this.state.width > 1150) {
-            document.getElementById("root").className = "theme-red"
+            document.getElementById("root").className = "theme-green"
         } else {
             // hard coded html class
             document.getElementById("root").className = this.state.bodyClass
