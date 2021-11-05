@@ -18,6 +18,6 @@ class auditLogSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = CRUDEvent
-        fields = ['event_type', 'datetime', 'user_id','email', 'changed_fields']
+        fields = ['id','event_type', 'datetime', 'user_id','email', 'changed_fields']
         
         
