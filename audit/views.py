@@ -19,7 +19,7 @@ class GetAuditLogView(viewsets.ViewSet):
     
     def list (self, request):
         # need to filter according to often used tables
-        log = CRUDEvent.objects.all()
+        log = CRUDEvent.objects.filter(user_id__is_staff=True)
         serializer = auditLogSerializer(log, many = True)
         data = serializer.data
         response_dict = {"error":False, "message":"Audit Log Data", "data": data}
