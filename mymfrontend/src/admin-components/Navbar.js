@@ -9,16 +9,13 @@ class Navbar extends React.Component {
             <nav className="navbar">
                 <div className="container-fluid"> 
                     <div className="navbar-header">
-                                          
-                                            <a href="#" className="bars" onClick={this.props.onBarClick}></a>    
-                                                                </div> 
-                         <img src={user1} style={{width: 60, height: 60, borderRadius: 250/4}}  /> 
+                        <img src={user1} style={{width: 60, height: 60, borderRadius: 250/4}}  /> 
                         
-                                                   <a href="#" className="bars" onClick={this.props.onBarClick}></a>    
-                        </div> 
+                        <a href="#" className="bars" onClick={this.props.onBarClick}></a>    
+                    </div> 
                     <a className="navbar-brand" href="#">Taylor's University Counselling Service</a>
-                                    </div>
-                            </nav>
+                </div>
+            </nav>
         )
     }
 }
