@@ -7,6 +7,7 @@ class Config{
     static appointmentUrl ="http://127.0.0.1:8000/api/appointment/"
     static assessmentUrl ="http://127.0.0.1:8000/api/counsellingAssess/"
     static userRoleUrl ="http://127.0.0.1:8000/api/getUserRole/"
+    static auditLogUrl ="http://127.0.0.1:8000/api/getAuditLog/"
     static homeUrl = "/home"
     static logoutPage = "/logout"
 

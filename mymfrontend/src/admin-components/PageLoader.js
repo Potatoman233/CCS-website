@@ -6,7 +6,7 @@ class PageLoader extends React.Component {
             <div className="page-loader-wrapper" style={{display:" none" }}>
                 <div className="loader">
                     <div className="preloader">
-                        <div className="spinner-layer pl-red">
+                        <div className="spinner-layer pl-green">
                             <div className="circle-clipper left">
                                 <div className="circle"></div>
                             </div>

@@ -1,8 +1,9 @@
 import React from 'react'
-import usericon from 'adminbsb-materialdesign/images/user.png'
 import Config from '../utils/Config'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { reactLocalStorage } from 'reactjs-localstorage'
 
+const bcrypt = require('bcryptjs')
 class Sidebar extends React.Component {
 
     render() {
@@ -10,7 +11,7 @@ class Sidebar extends React.Component {
             <section>
                 <aside id="leftsidebar" className="sidebar">
                     <div className="user-info">
-                        
+
                         <div className="info-container">
                             <div className="name"
                                 data-toggle="dropdown"
@@ -22,21 +23,33 @@ class Sidebar extends React.Component {
                         </div>
                     </div>
                     <div className="menu">
-                        <div className="slimScrollDiv" style={{ position: " relative", overflow: " hidden", width: " auto"}}>
+                        <div className="slimScrollDiv" style={{ position: " relative", overflow: " hidden", width: " auto" }}>
                             <ul className="list" style={{ overflow: "hidden", width: "auto" }}>
                                 <li className="header">Main Menu</li>
                                 {/* dynamic side bar items */}
                                 {Config.sidebarItem.map(
                                     (item) =>
                                         <li key={item.index}
-                                        className={item.index == this.props.activepage ? 
-                                        "active" : ""}>
+                                            className={item.index == this.props.activepage ?
+                                                "active" : ""}>
                                             <Link to={item.url} className="toggled waves-effect waves-block">
                                                 <i className="material-icons">{item.icons}</i>
                                                 <span>{item.title}</span>
                                             </Link>
                                         </li>
                                 )}
+                                
+                                {/* compare is_superuser status to show advanced admin feature */}
+                                
+                                {bcrypt.compareSync ("True", reactLocalStorage.get("is_superuser")) ? 
+                                <li >
+                                    <Link to={"/AuditLog"} className="toggled waves-effect waves-block">
+                                        <i className="material-icons">assignment</i>
+                                        <span>Audit Log</span>
+                                    </Link>
+                                </li> : "" }
+                                
+
                                 <li >
                                     <Link to={Config.logoutPage} className="toggled waves-effect waves-block">
                                         <i className="material-icons">input</i>
@@ -58,11 +71,11 @@ class Sidebar extends React.Component {
                     </div>
                     <div className="legal">
                         <div className="copyright">
-                            Copyright © 2021 <br/>Taylor's University <br/>DU023(B). All rights reserved <a href="#"><br/>CCS Admin</a>
+                            Copyright © 2021 <br />Taylor's University <br />DU023(B). All rights reserved <a href="#"><br />CCS Admin</a>
                         </div>
-                           <div className="version">
+                        <div className="version">
                             <b>Version: </b> 0.1.0
-                           </div>
+                        </div>
                     </div>
                 </aside>
             </section>

@@ -13,8 +13,7 @@ import { Redirect } from "react-router"
 class Login extends React.Component {
 
     state={
-        
-        username:"",
+        email:"",
         password:"",
         btnDisabled:true,
         loginStatus:0,
@@ -25,8 +24,8 @@ class Login extends React.Component {
         var key=events.target.name
         // set the values from login form to state variables
         this.setState({[key]:events.target.value})
-        // if username and password is not blank, enable btn 
-        if(this.state.username !== "" && this.state.password!== ""){
+        // if email and password is not blank, enable btn 
+        if(this.state.email !== "" && this.state.password!== ""){
             this.setState({btnDisabled: false})
         }
         else{
@@ -39,7 +38,7 @@ class Login extends React.Component {
         events.preventDefault()
         console.log(this.state)
         this.setState({loginStatus:1})
-        AuthHandler.adminLogin(this.state.username, this.state.password,this.handleAjaxResponse)
+        AuthHandler.adminLogin(this.state.email, this.state.password,this.handleAjaxResponse)
     }
 
     handleAjaxResponse=(data)=>{
@@ -82,7 +81,7 @@ class Login extends React.Component {
     render() {
         // redirect user back to home when logged in
 
-        if(AuthHandler.loggedIn()){
+        if(AuthHandler.adminLoggedIn()){
             return <Redirect to={Config.homeUrl} />
         }  
         document.body.className = "login-page"
@@ -122,8 +121,8 @@ class Login extends React.Component {
                                     <div className="form-line">
                                         <input type="text" 
                                         className="form-control" 
-                                        name="username" 
-                                        placeholder="Username" 
+                                        name="email" 
+                                        placeholder="Email" 
                                         required autoFocus 
                                         onChange = {this.saveInputs}/>
                                     </div>
