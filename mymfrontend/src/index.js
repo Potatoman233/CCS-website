@@ -52,7 +52,7 @@ ReactDOM.render(
             <PrivateRouteNew exact path="/editappointment/:client_id/:id" activepage="0" page={EditAppointment}></PrivateRouteNew>
             <PrivateRouteNew exact path="/addassessment/:client_id/:id" activepage="0" page={AddAssessment}></PrivateRouteNew>
             <PrivateRouteNew exact path="/editassessment/:client_id/:id" activepage="0" page={EditAssessment}></PrivateRouteNew>
-            <PrivateRouteNew exact path="/auditlog" activepage="0" page={AuditLog}></PrivateRouteNew>
+            <PrivateRouteNew exact path="/auditlog" activepage="3" page={AuditLog}></PrivateRouteNew>
         </Switch>
     </Router>
     , document.getElementById("root"))

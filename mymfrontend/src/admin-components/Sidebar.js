@@ -44,7 +44,7 @@ class Sidebar extends React.Component {
                                 {reactLocalStorage.get("is_superuser") ? (
                                 
                                 bcrypt.compareSync ("True", reactLocalStorage.get("is_superuser")) ? 
-                                <li >
+                                <li className={"3" === this.props.activepage ?"active" : ""} >
                                     <Link to={"/AuditLog"} className="toggled waves-effect waves-block">
                                         <i className="material-icons">assignment</i>
                                         <span>Audit Log</span>
