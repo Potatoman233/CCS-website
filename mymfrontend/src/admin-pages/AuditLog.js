@@ -33,7 +33,7 @@ class AuditLog extends React.Component {
                             <div className="card">
                                 <div className="header">
                                     {/* loading animation */}
-                                    {this.state.dataLoaded == false ? (
+                                    {this.state.dataLoaded === false ? (
                                         <div className="text-center">
                                             <div className="preloader pl-size-xl">
                                                 <div className="spinner-layer">

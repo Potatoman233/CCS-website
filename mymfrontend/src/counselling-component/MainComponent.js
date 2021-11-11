@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Overlay from './Overlay'
 import GoogleFontLoader from 'react-google-font-loader'
+import { reactLocalStorage } from 'reactjs-localstorage'
 import "adminbsb-materialdesign/css/themes/all-themes.css"
 import "adminbsb-materialdesign/css/style.css"
 
@@ -11,6 +12,7 @@ class MainComponent extends React.Component {
         bodyClass: "theme-red",
         displayOverlay: "none",
         width: window.screen.width,
+        userID: "",
     }
 
     // when screen size changes, will not have refresh
@@ -42,6 +44,13 @@ class MainComponent extends React.Component {
         })
     }
 
+    setUserId(userid){
+        if(userid !== ""){
+            this.setState({userID:userid})
+            reactLocalStorage.set("userID", userid)
+        }
+    }
+
     render() {
         console.log(this.props)
         if (this.state.width > 1150) {
@@ -53,9 +62,9 @@ class MainComponent extends React.Component {
         }
 
         // pass the loaded page
-        var Page = this.props.page
-
-        // separates the components into variouF parts
+        var Page = this.props.page 
+        
+        // separates the components into various parts
         return <React.Fragment>
             <GoogleFontLoader
                 fonts={[
@@ -75,9 +84,9 @@ class MainComponent extends React.Component {
                 ]}
             />
             <Overlay display={this.state.displayOverlay} />
-            <Navbar onBarClick={this.onBarClick} />
+            <Navbar onBarClick={this.onBarClick} {...this.props} />
             {/* dynamic page content loader, keep things like nav bar constant*/}
-            <Page {...this.props} />
+            <Page {...this.props} onLogin={(userid) => this.setUserId(userid)}  />
         </React.Fragment>
     }
 }

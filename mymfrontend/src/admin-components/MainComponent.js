@@ -14,10 +14,10 @@ class MainComponent extends React.Component {
     }
     // when clicking the side bar , i changed red to green but dk tf if does
     onBarClick = () =>{
-        if(this.state.bodyClass=="theme-green ls-closed overlay-open"){
+        if(this.state.bodyClass==="theme-green ls-closed overlay-open"){
             this.setState({bodyClass:"theme-green ls-closed"})
             this.setState({displayOverlay:"none"})
-        }else if(this.state.bodyClass=="theme-green ls-closed"){
+        }else if(this.state.bodyClass==="theme-green ls-closed"){
             this.setState({bodyClass:"theme-green ls-closed overlay-open"})
             this.setState({displayOverlay:"block"})
         }

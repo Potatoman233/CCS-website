@@ -30,7 +30,7 @@ class Sidebar extends React.Component {
                                 {Config.sidebarItem.map(
                                     (item) =>
                                         <li key={item.index}
-                                            className={item.index == this.props.activepage ?
+                                            className={item.index === this.props.activepage ?
                                                 "active" : ""}>
                                             <Link to={item.url} className="toggled waves-effect waves-block">
                                                 <i className="material-icons">{item.icons}</i>
@@ -41,17 +41,19 @@ class Sidebar extends React.Component {
                                 
                                 {/* compare is_superuser status to show advanced admin feature */}
                                 
-                                {bcrypt.compareSync ("True", reactLocalStorage.get("is_superuser")) ? 
+                                {reactLocalStorage.get("is_superuser") ? (
+                                
+                                bcrypt.compareSync ("True", reactLocalStorage.get("is_superuser")) ? 
                                 <li >
                                     <Link to={"/AuditLog"} className="toggled waves-effect waves-block">
                                         <i className="material-icons">assignment</i>
                                         <span>Audit Log</span>
                                     </Link>
-                                </li> : "" }
+                                </li> : "" ) : console.log("")}
                                 
 
                                 <li >
-                                    <Link to={Config.logoutPage} className="toggled waves-effect waves-block">
+                                    <Link to={Config.adminLogoutPage} className="toggled waves-effect waves-block">
                                         <i className="material-icons">input</i>
                                         <span>Logout</span>
                                     </Link>
@@ -71,7 +73,7 @@ class Sidebar extends React.Component {
                     </div>
                     <div className="legal">
                         <div className="copyright">
-                            Copyright © 2021 <br />Taylor's University <br />DU023(B). All rights reserved <a href="#"><br />CCS Admin</a>
+                            Copyright © 2021 <br />Taylor's University <br />DU023(B). All rights reserved<br />CCS Admin
                         </div>
                         <div className="version">
                             <b>Version: </b> 0.1.0

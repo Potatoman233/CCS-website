@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import AuthHandler from "../utils/AuthHandler"
+import { reactLocalStorage } from 'reactjs-localstorage'
 
 
 class Navbar extends React.Component {
@@ -7,7 +9,7 @@ class Navbar extends React.Component {
         return (
             <nav className="navbar">
                 <div className="container-fluid">
-                    <div className="justify-content-start">                      
+                    <div className="justify-content-start">
                         {/* taylors logo */}
                         <Link className="navbar-brand" to="/">
                             <i>Taylor's Logo</i>
@@ -39,20 +41,25 @@ class Navbar extends React.Component {
                     </div>
 
                     <div className="justify-content-end">
-                        {/* login btn */}
-                        <Link className="navbar-brand" to="/counsellinglogin">
+                        {AuthHandler.loggedIn() ?
+                            <Link className="navbar-brand" to={'/user/'+reactLocalStorage.get("userID")}>
+                            <span>Account</span>
+                            </Link>
+                            :
+                            < Link className="navbar-brand" to="/counsellinglogin">
                             <span>Login</span>
-                        </Link>
-                        
-                        <Link className="navbar-brand" to="/">
-                            <i>CCS logo</i>
-                        </Link>
-                    </div>
+                            </Link> 
+                        }
+
+                    <Link className="navbar-brand" to="/">
+                        <i>CCS logo</i>
+                    </Link>
                 </div>
-            </nav>
+            </div>
+            </nav >
         )
     }
-} 
+}
 
-export default Navbar 
+export default Navbar
 

@@ -7,7 +7,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from accounts.serializers import AdminTokenObtainPairSerializer
+from accounts.serializers import AdminTokenObtainPairSerializer, GetTokenObtainPairSerializer
 
 from .models import User
 
@@ -47,6 +47,14 @@ class UserView(viewsets.ViewSet):
 class UserRoleCheckView(TokenObtainPairView):
     permission_class = [IsAdminUser]
     serializer_class = AdminTokenObtainPairSerializer
+
+    def post(self, request, *args, **kwargs):
+
+        response = super().post(request, *args, **kwargs)
+        return response
+    
+class GetTokenView(TokenObtainPairView):
+    serializer_class = GetTokenObtainPairSerializer
 
     def post(self, request, *args, **kwargs):
 

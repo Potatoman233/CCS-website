@@ -5,6 +5,7 @@ import user1 from '../assets/user1.png'
 
 class Navbar extends React.Component {
     render() {
+        document.getElementById("root").className = "theme-green"
         return (
             <nav className="navbar">
                 <div className="container-fluid"> 
