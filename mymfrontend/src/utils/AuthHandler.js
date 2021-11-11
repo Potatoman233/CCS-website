@@ -11,7 +11,7 @@ class AuthHandler {
                     // store the tokens in local storage
                     reactLocalStorage.set("token", response.data.access)
                     reactLocalStorage.set("refresh", response.data.refresh)
-                    callback({ error: false, message: "Login Successfully" })
+                    callback({ error: false, message: "Login Successfully", userid: response.data.id })
                 }
             })
             .catch(function (error) {

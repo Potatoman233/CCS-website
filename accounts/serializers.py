@@ -19,3 +19,9 @@ class AdminTokenObtainPairSerializer(TokenObtainPairSerializer):
         data.pop("refresh")
         data.pop("access")
         return data
+    
+class GetTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data["id"] = self.user.id
+        return data

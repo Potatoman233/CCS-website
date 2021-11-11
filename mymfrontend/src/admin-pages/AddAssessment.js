@@ -110,7 +110,7 @@ class AddAssessment extends React.Component {
                                         <br />
 
                                         {/* if submit success */}
-                                        {this.state.errorRes == false && this.state.sendData == true ? (
+                                        {this.state.errorRes === false && this.state.sendData === true ? (
                                             <div className="alert alert-success">
                                                 <strong>Success!</strong> {this.state.errorMessage}. 
                                                 <Link to={"/clientdetail/"+this.props.match.params.client_id}
@@ -120,7 +120,7 @@ class AddAssessment extends React.Component {
                                         ) : ("")}
 
                                         {/* if submit failed */}
-                                        {this.state.errorRes == true && this.state.sendData == true ? (
+                                        {this.state.errorRes === true && this.state.sendData === true ? (
                                             <div className="alert alert-danger">
                                                 {this.state.errorMessage}
                                             </div>

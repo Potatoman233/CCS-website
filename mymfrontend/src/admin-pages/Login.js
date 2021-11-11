@@ -106,7 +106,7 @@ class Login extends React.Component {
                     ]}
                 />
               <div> <Navbar/> </div>
-                <div className="login-box">
+                <div className="login-box" style={{paddingTop:'50px'}}>
                     <div className="logo">
                         <a href="#">Admin<b>CCS</b></a>
                     </div>
