@@ -57,6 +57,7 @@ class AuditLog extends React.Component {
                                         <thead>
                                             <tr>
                                                 <th>Events</th>
+                                                <th>Category</th>
                                                 <th>Date time</th>
                                                 <th>Done by</th>
                                                 <th>Changed fields</th>
@@ -69,6 +70,7 @@ class AuditLog extends React.Component {
                                             {this.state.auditDataList.map((data) => (
                                                 <tr key={data.id} >
                                                     <td>{data.event_type} </td>
+                                                    <td>{data.content_type} </td>
                                                     <td>{data.datetime} </td>
                                                     <td>{data.email} </td>
                                                     {/* check if changes field is null, display value if not */}

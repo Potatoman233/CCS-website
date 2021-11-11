@@ -13,11 +13,12 @@ class auditLogSerializer(serializers.ModelSerializer):
     
     email = serializers.ReadOnlyField(source = 'user.email')
     event_type = serializers.CharField(source= 'get_event_type_display')
+    content_type = serializers.CharField(source= 'content_type.model')
     datetime = serializers.DateTimeField(default_timezone=pytz.timezone("Asia/Kuala_Lumpur"), format="%Y-%m-%d %H:%M:%S")
     changed_fields = customJSONField()
     
     class Meta:
         model = CRUDEvent
-        fields = ['id','event_type', 'datetime', 'user_id','email', 'changed_fields']
+        fields = ['id','event_type', 'content_type', 'datetime', 'user_id','email', 'changed_fields']
         
         
