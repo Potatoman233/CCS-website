@@ -3,6 +3,24 @@ import Config from './Config'
 import { reactLocalStorage } from 'reactjs-localstorage'
 
 class AuthHandler {
+    static register(email, password, password2, is_staff, is_superstaff, callback) {
+        axios.post(Config.registerUrl, { email: email, password: password, password2:password2,
+            is_staff:is_staff, is_superstaff:is_superstaff})
+            .then(function (response) {
+                if (response.status === 200) {
+                    // return register success message
+                    callback({ error: false, message: "Register Successfully", userid: response.data.id })
+                }
+                else{
+                    callback({ error: true, message: response.response})
+                }
+            })
+            .catch(function (error) {
+                console.log(error.response.data.response)
+                callback({ error: true, message: error.response.data.response })
+            })
+    }
+
     // handles authentication from API to frontend 
     static login(email, password, callback) {
         axios.post(Config.loginUrl, { email: email, password: password })
@@ -51,7 +69,15 @@ class AuthHandler {
                 }
             })
             .catch(function (error) {
-                callback({ error: true, message: error.message })
+                console.log(error)
+                if(error.message ==="User have no access"){
+                    callback({ error: true, message: error.message })
+                }
+                // if user credential not exists
+                else{
+                    callback({ error: true, message: error.response.data.detail })
+                }
+                
             })
     }
 

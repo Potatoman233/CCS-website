@@ -17,6 +17,7 @@ import HomePage from './counselling-pages/HomePage'
 
 import { ClientRoute } from './utils/ClientRoute'
 import CounsellingLogin from './counselling-pages/Login'
+import Register from './counselling-pages/Register'
 import LogoutComponent from './counselling-pages/LogtoutComponent'
 import Contact from './counselling-pages/Contact'
 import Events from './counselling-pages/Events'
@@ -33,6 +34,7 @@ ReactDOM.render(
             {/* placeholder method for counselling page */}
             <ClientRoute exact path="/" activepage="1" page={HomePage}></ClientRoute>
             <ClientRoute exact path="/counsellinglogin" page={CounsellingLogin}></ClientRoute>
+            <ClientRoute exact path="/register" page={Register}></ClientRoute>
             <ClientRoute exact path={Config.logoutPage} page={LogoutComponent}></ClientRoute>
             <ClientRoute exact path="/about" activepage="0" page={About}></ClientRoute>
             <ClientRoute exact path="/services" activepage="0" page={Services}></ClientRoute>
