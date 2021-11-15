@@ -8,21 +8,26 @@ class HomePage extends React.Component {
                 <div className="container-fluid">
                     <div>
                         <br />
-                        <h3> You deserve to be understood. </h3> 
                         <br />
                         <p>
-                        You are not being understood by anyone you know and we know you <br />
-                        crave for being understood. We understand that you’re tired of talking <br />
-                        about it with the people. But we want to understand you, truly. And we <br />
-                        will listen to you without being jugmental. No third person.
+                        The Centre for Counselling Services (CCS) aims to help and <br />
+                        support students resolve personal difficulties acquire the <br />
+                        skills, and knowledge that will enable them to take full <br />
+                        advantage of the experience at Taylor’s.
                         </p>
-                        <h3>Just us.</h3>
-
-                        <button className="btn btn-primary m-t-15">Share your story now</button>
+                        <br />
+                        <p>
+                        CCS offers a service which is free, confidential, and available <br />
+                        to all students to provide you with the emotional and <br />
+                        psychological support whenever you need it. CCS focuses <br />
+                        on Prevention, Intervention and Collaboration.
+                        </p>
+                        
+                        <button className="btn btn-primary m-t-15">Make Counselling Appointment</button>
 
                         <br />
                         <br />
-                        <h3>8 Signs You Need Counselling</h3>
+                        <h3>Talk to us if you go through these experiences.</h3>
                         <br />
                         <p>
                         You’re less productive and finding it difficult to focus <br />
@@ -34,8 +39,30 @@ class HomePage extends React.Component {
                         You’re not as happy as you should be <br />
                         You feel like you’re on the brink of breaking down</p>
                         <br />
-                        <h3>Bear in mind, you don’t have to help yourself by yourself.</h3>
-     
+                        <h3>Our Services</h3>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h3>Our Team</h3>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h3>Testimonials</h3>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h3>“We are ready to listen to you.”</h3>
+                        <br />
+                        <button className="btn btn-primary m-t-15">Make Counselling Appointment</button>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        
 
                     </div>
                 </div>
