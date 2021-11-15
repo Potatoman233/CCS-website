@@ -7,7 +7,17 @@ class Events extends React.Component {
             <section className="content">
                 <div className="container-fluid">
                     <div>
-                        <h2> Events </h2>
+                        <br />
+                        <h2> Events/Programme </h2>
+                        <br />
+                        <p>
+                        Meet-the-Counsellor Day <br />
+                        Taylor’s Annual Mental Wellness Campaign <br />
+                        Peer Counselling Buddies <br />   
+                        Workshop/ Seminar/ Forum
+                        </p>
+                        <br />
+                        <h2> Gallery/Photo: </h2>
 
                         
                     </div>

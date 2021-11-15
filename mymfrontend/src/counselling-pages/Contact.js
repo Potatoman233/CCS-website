@@ -8,7 +8,7 @@ class Contact extends React.Component {
                 <div className="container-fluid">
                     <div>
                         <br />
-                        <h2> Engage with us </h2>
+                        <h2> Connect with us </h2>
                         <br />
 
                         <h4>Operating Hours:</h4>
@@ -23,7 +23,7 @@ class Contact extends React.Component {
                         </p>
                         <br />
 
-                        <h4>Mobile Number:</h4>
+                        <h4>Contact Number:</h4>
                         <p>
                         +603-5629 5022 / 5024 / 5025 / 6791    
                         </p>

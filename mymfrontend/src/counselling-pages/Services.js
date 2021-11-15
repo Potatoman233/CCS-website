@@ -8,7 +8,7 @@ class Services extends React.Component {
                 <div className="container-fluid">
                     <div>
                         <br />
-                        <h3>Individual counselling</h3>
+                        <h3>Individual Counselling</h3>
                         <br />
                         <p>
                         A process which allows clients to discuss their concern or worries, develop better <br />
@@ -17,7 +17,7 @@ class Services extends React.Component {
                         </p>
                         <br />
                             
-                        <h3>Group counselling</h3>
+                        <h3>Group Counselling</h3>
                         <br />
                         <p>
                         Comprises of a small group of individuals with similar concerns who, with a <br />
@@ -26,7 +26,7 @@ class Services extends React.Component {
                         </p>
                         <br />
 
-                        <h3>Psychological and well-being Consultation</h3>
+                        <h3>Psychological and Well-being Consultation</h3>
                         <br />
                         <p>
                         Counselling aims to cover all areas of psychological and well-being services <br />
@@ -42,7 +42,7 @@ class Services extends React.Component {
                         </p>
                         <br />
 
-                        <h3>Crisis interventions</h3>
+                        <h3>Crisis Interventions</h3>
                         <br />
                         <p>
                         An immediate intervention taken by the counsellors to assist in the care of those in <br />
@@ -51,7 +51,7 @@ class Services extends React.Component {
                         </p>
                         <br />
 
-                        <h3>Assistance with referrals to community resources</h3>
+                        <h3>Assistance with Referrals to Community Resources</h3>
                         <br />
                         <p>
                         A support system for referral of clients requiring additional external resources <br />
