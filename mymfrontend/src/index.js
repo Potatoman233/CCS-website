@@ -27,6 +27,7 @@ import FAQ from './counselling-pages/FAQ'
 import About from './counselling-pages/About'
 import User from './counselling-pages/User'
 import { PrivateClientRoute } from './utils/PrivateClientRoute'
+import Schedule from './admin-pages/Schedule'
 
 ReactDOM.render(
     <Router>
@@ -55,6 +56,7 @@ ReactDOM.render(
             <PrivateRouteNew exact path="/addassessment/:client_id/:id" activepage="0" page={AddAssessment}></PrivateRouteNew>
             <PrivateRouteNew exact path="/editassessment/:client_id/:id" activepage="0" page={EditAssessment}></PrivateRouteNew>
             <PrivateRouteNew exact path="/auditlog" activepage="3" page={AuditLog}></PrivateRouteNew>
+            <PrivateRouteNew exact path="/schedule" activepage="2" page={Schedule}></PrivateRouteNew>
         </Switch>
     </Router>
     , document.getElementById("root"))

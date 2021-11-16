@@ -18,6 +18,7 @@ class Config{
     static sidebarItem=[
         {"index":"0", "title":"Home", "url":"/home", "icons":"home"},
         {"index":"1", "title":"Client", "url":"/client", "icons":"face"},
+        {"index":"2", "title":"Schedule", "url":"/schedule", "icons":"today"},
     ]
 
     // counselling website
