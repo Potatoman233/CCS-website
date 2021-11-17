@@ -7,6 +7,7 @@ class Config{
     static clientApiUrl ="http://127.0.0.1:8000/api/client/"
     static appointmentUrl ="http://127.0.0.1:8000/api/appointment/"
     static assessmentUrl ="http://127.0.0.1:8000/api/counsellingAssess/"
+    static scheduleUrl ="http://127.0.0.1:8000/api/schedule/"
     static userRoleUrl ="http://127.0.0.1:8000/api/getUserRole/"
     static auditLogUrl ="http://127.0.0.1:8000/api/getAuditLog/"
     static homeUrl = "/home"
