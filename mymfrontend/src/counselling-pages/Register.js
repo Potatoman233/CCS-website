@@ -18,7 +18,7 @@ class Register extends React.Component {
         is_superstaff: false,
         btnDisabled: true,
         loginStatus: 0,
-        errorMessage: 0,
+        errorMessage: "",
     }
 
     saveInputs = (events) => {
@@ -34,13 +34,26 @@ class Register extends React.Component {
         }
     }
 
+    emailValidation(){
+        // suppress warning 
+        // eslint-disable-next-line
+        const regex = new RegExp (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
+        if(!this.state.email || regex.test(this.state.email) === false){
+            this.setState({loginStatus : 4})
+            this.setState({errorMessage:"Invalid email"})
+            return false
+        }
+        return true
+    }
+
     formSubmit = (events) => {
         // prevents the browser to refresh when submit
         events.preventDefault()
-        this.setState({ loginStatus: 1 })
-        AuthHandler.register(this.state.email, this.state.password, this.state.password2,
-            this.state.is_staff, this.state.is_superstaff, this.handleAjaxResponse)
-        
+        if (this.emailValidation()){
+            this.setState({ loginStatus: 1 })
+            AuthHandler.register(this.state.email, this.state.password, this.state.password2,
+                this.state.is_staff, this.state.is_superstaff, this.handleAjaxResponse)
+        }
     }
 
     handleAjaxResponse = (data) => {
