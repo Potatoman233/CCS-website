@@ -1,10 +1,8 @@
-
-from django.db.models import query
+import datetime
+from dateutil.relativedelta import relativedelta
 from rest_framework import generics
-from rest_framework.serializers import Serializer
-from mymApp.serializers import AppointmentSerializer, ClientSerializer, CounsellingAssessmentSerializer
+from mymApp.serializers import AppointmentSerializer, ClientSerializer, CounsellingAssessmentSerializer, ScheduleSerializer
 from mymApp.models import Appointment, Client, CounsellingAssessment
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -133,6 +131,18 @@ class AppointmentViewSet(viewsets.ViewSet):
             response_dict = {"error":True, "message":str(e)}
         return Response(response_dict)
     
+class ScheduleViewSet(viewsets.ViewSet):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated] 
+    
+    def list(self, request):
+        # filter only data from previous month onwards
+        prev_month = datetime.date.today() - relativedelta(months = 1)
+        appointment = Appointment.objects.filter(appointment_date__gte=prev_month)
+        serializer = ScheduleSerializer(appointment, many = True, context = {"request": request})
+        response_dict = {"error":False, "message":"Upcoming appointment", "data": serializer.data}
+        return Response(response_dict)
+
 class ClientNameViewSet(generics.ListAPIView):
     serializer_class = ClientSerializer
     def get_queryset(self):
