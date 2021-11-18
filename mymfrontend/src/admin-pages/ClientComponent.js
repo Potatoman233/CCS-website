@@ -111,14 +111,14 @@ class ClientComponent extends React.Component {
                                         <br />
 
                                         {/* if submit success */}
-                                        {this.state.errorRes == false && this.state.sendData == true ? (
+                                        {this.state.errorRes === false && this.state.sendData === true ? (
                                             <div className="alert alert-success">
                                                 <strong>Success!</strong> {this.state.errorMessage}.
                                             </div>
                                         ) : ("")}
 
                                         {/* if submit failed */}
-                                        {this.state.errorRes == true && this.state.sendData == true ? (
+                                        {this.state.errorRes === true && this.state.sendData === true ? (
                                             <div className="alert alert-danger">
                                                 <strong>Oh snap!</strong> {this.state.errorMessage}
                                             </div>
@@ -135,7 +135,7 @@ class ClientComponent extends React.Component {
                             <div className="card">
                                 <div className="header">
                                     {/* loading animation */}
-                                    {this.state.dataLoaded == false? (
+                                    {this.state.dataLoaded === false? (
                                     <div className="text-center">
                                         <div className="preloader pl-size-xl">
                                             <div className="spinner-layer">

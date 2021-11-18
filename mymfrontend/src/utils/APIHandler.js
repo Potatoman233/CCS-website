@@ -35,7 +35,7 @@ class APIHandler {
                 console.log(error)
                 // invalid token for refresh, need to log user out
                 AuthHandler.logoutAdminUser()
-                window.location = "/"
+                window.location = "/adminlogin"
             }
         }
     }
@@ -185,6 +185,16 @@ class APIHandler {
         await this.checkAdminLogin()
 
         var response = await axios.get(Config.auditLogUrl, {
+            headers: { Authorization: "Bearer " + AuthHandler.getAdminLoginToken() }
+        })
+
+        return response
+    }
+
+    async fetchSchedule() {
+        await this.checkAdminLogin()
+
+        var response = await axios.get(Config.scheduleUrl, {
             headers: { Authorization: "Bearer " + AuthHandler.getAdminLoginToken() }
         })
 

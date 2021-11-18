@@ -1,19 +1,24 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import AuthHandler from "../utils/AuthHandler"
+import { reactLocalStorage } from 'reactjs-localstorage'
+import CCSLogo from '../assets/CCSLogo.png'
+import TaylorLogo from '../assets/taylors-logo.png'
+
 
 class Navbar extends React.Component {
     render() {
         return (
             <nav className="navbar">
                 <div className="container-fluid">
-                    <div className="navbar-header">
+                    <div className="justify-content-start">
                         {/* taylors logo */}
-                        <Link className="navbar-brand" to="/">
-                            <i>Taylor's Logo</i>
+                        <Link className="navbar-header" to="/">
+                            <img src={TaylorLogo} style={{ width: 120, height: 70}} alt="CCS Logo" />
                         </Link>
                     </div>
 
-                    <div>
+                    <div className="justify-content-center">
                         <Link className="navbar-brand" to="/about">
                             <span>About</span>
                         </Link>
@@ -22,10 +27,6 @@ class Navbar extends React.Component {
                         </Link>
                         <Link className="navbar-brand" to="/events">
                             <span>Events</span>
-                        </Link>
-
-                        <Link className="navbar-brand" to="/">
-                            <i>CCS logo</i>
                         </Link>
 
                         <Link className="navbar-brand" to="/team">
@@ -41,17 +42,29 @@ class Navbar extends React.Component {
                         </Link>
                     </div>
 
-                    <div className="nav navbar-nav navbar-right ">
-                        {/* login btn */}
-                        <Link className="navbar-brand" to="/counsellinglogin">
-                            <span>Login</span>
-                        </Link>
+                    <div className="justify-content-end">
+                        {AuthHandler.loggedIn() ?
+                            <Link className="navbar-brand" to={'/user/' + reactLocalStorage.get("userID")}>
+                                <span>Account</span>
+                            </Link>
+                            :
+                            < Link className="navbar-brand" to="/counsellinglogin">
+                                <span>Login</span>
+                            </Link>
+                        }
                     </div>
 
+                    <div className="justify-content-end">
+
+                        <Link className="navbar-header" to="/">
+                            <img src={CCSLogo} style={{ width: 60, height: 60, borderRadius: 200 / 4 }} alt="CCS Logo" />
+                        </Link>
+                    </div>
                 </div>
-            </nav>
+            </nav >
         )
     }
 }
 
 export default Navbar
+

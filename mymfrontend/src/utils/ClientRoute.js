@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import AuthHandler from './AuthHandler'
+import React from 'react'
+import { Route} from 'react-router-dom'
 import MainComponent from '../counselling-component/MainComponent'
 
-export var PrivateRoute = ({ page, activepage, ...rest }) => {
+export var ClientRoute = ({ page, activepage, ...rest }) => {
     // make sure user is logged in to access web page
     console.log({...rest})
     return (

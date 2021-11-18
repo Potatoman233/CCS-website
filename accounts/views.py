@@ -7,7 +7,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from accounts.serializers import AdminTokenObtainPairSerializer
+from accounts.serializers import AdminTokenObtainPairSerializer, GetTokenObtainPairSerializer
 
 from .models import User
 
@@ -24,7 +24,10 @@ class UserView(viewsets.ViewSet):
         
         email = User.objects.filter(email=post_data['email'])
         if email.exists():
-            return Response({"response": "email already exists"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"response": "Email already exists"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if post_data["password"] != post_data["password2"]:
+            return Response({"response": "Passwords doesn't match"}, status=status.HTTP_400_BAD_REQUEST)
 
         user = User.objects.create_user(
             email=post_data['email'],
@@ -52,6 +55,16 @@ class UserRoleCheckView(TokenObtainPairView):
 
         response = super().post(request, *args, **kwargs)
         return response
+    
+class GetTokenView(TokenObtainPairView):
+    serializer_class = GetTokenObtainPairSerializer
+
+    def post(self, request, *args, **kwargs):
+        try:
+            response = super().post(request, *args, **kwargs)
+            return response
+        except Exception as e:
+            return Response({"error":True, "message": str(e)}, status=status.HTTP_400_BAD_REQUEST)
     
 class UserChangePasswordView(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
