@@ -1,5 +1,5 @@
 import React from 'react'
-import user1 from '../assets/user1.png'
+import CCSLogo from '../assets/CCSLogo.png'
 
 
 
@@ -10,7 +10,7 @@ class Navbar extends React.Component {
             <nav className="navbar">
                 <div className="container-fluid"> 
                     <div className="navbar-header">
-                        <img src={user1} style={{width: 60, height: 60, borderRadius: 250/4}} alt="CCS Logo" /> 
+                        <img src={CCSLogo} style={{width: 60, height: 60, borderRadius: 250/4}} alt="CCS Logo" /> 
                         
                         <a href="/home" className="bars" onClick={this.props.onBarClick}> </a>    
                     </div> 
